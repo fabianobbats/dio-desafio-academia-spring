@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,15 +29,17 @@ public class AvaliacaoFisica {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "aluno_id")
+  @JoinColumn(name = "aluno_id", nullable = false)
   @JsonManagedReference
-
   @JsonIdentityReference(alwaysAsId = true)
   private Aluno aluno;
 
+  @Column(nullable = false)
   private LocalDate dataDaAvaliacao = LocalDate.now();
 
+  @Column(nullable = false)
   private Double peso;
 
+  @Column(nullable = false)
   private Double altura;
 }
