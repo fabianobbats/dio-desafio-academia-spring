@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import me.dio.academia.dtos.MatriculaForm;
 import me.dio.academia.models.Matricula;
 import me.dio.academia.services.MatriculaService;
@@ -22,7 +23,7 @@ public class MatriculaControlller {
   private MatriculaService service;
 
   @PostMapping
-  public Matricula create(@RequestBody MatriculaForm form) {
+  public Matricula create(@Valid @RequestBody MatriculaForm form) {
     return service.create(form);
   }
 

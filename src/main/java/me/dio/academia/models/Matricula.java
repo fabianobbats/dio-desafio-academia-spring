@@ -2,6 +2,7 @@ package me.dio.academia.models;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,8 +26,9 @@ public class Matricula {
   private Long id;
 
   @OneToOne
-  @JoinColumn(name = "aluno_id", unique = true)
+  @JoinColumn(name = "aluno_id", unique = true, nullable = false)
   private Aluno aluno;
 
+  @Column(nullable = false)
   private LocalDateTime dataDaMatricula = LocalDateTime.now();
 }
