@@ -1,4 +1,4 @@
-<h1> DIO Desafio POO </h1>
+<h1> DIO Desafio Spring </h1>
 
 <h2>Desafio: Spring Data JPA com Java na prática</h2>
 
