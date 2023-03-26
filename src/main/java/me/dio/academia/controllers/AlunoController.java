@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import me.dio.academia.dtos.AlunoForm;
 import me.dio.academia.models.Aluno;
 import me.dio.academia.models.AvaliacaoFisica;
@@ -23,12 +25,12 @@ public class AlunoController {
   private AlunoService service;
 
   @PostMapping
-  public Aluno create(@RequestBody AlunoForm form) {
+  public Aluno create(@Valid @RequestBody AlunoForm form) {
     return service.create(form);
   }
 
   @GetMapping("/avaliacoes/{id}")
-  public List<AvaliacaoFisica> getAllAvaliacaoFisicaId(@PathVariable Long id) {
+  public List<AvaliacaoFisica> getAllAvaliacaoFisicaId(@NotNull @PathVariable Long id) {
     return service.getAllAvaliacaoFisicaId(id);
   }
 

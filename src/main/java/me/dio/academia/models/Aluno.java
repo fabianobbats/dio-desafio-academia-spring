@@ -29,13 +29,16 @@ public class Aluno {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(nullable = false)
   private String nome;
 
   @Column(unique = true)
   private String cpf;
 
+  @Column(nullable = false)
   private String bairro;
 
+  @Column(nullable = false)
   private LocalDate dataDeNascimento;
 
   @OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
